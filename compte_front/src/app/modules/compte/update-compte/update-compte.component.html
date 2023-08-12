@@ -1,0 +1,45 @@
+<p-messages></p-messages>
+<p-card>
+
+  <ng-template pTemplate="header">
+    <h4 class="main-title">
+      Update account
+    </h4>
+  </ng-template>
+
+
+
+    <div class="p-field w-100 p-content ">
+      <label for="amount" style="display: block">Max amount</label>
+      <span class="w-100">
+      <p-inputNumber [(ngModel)]="selectedCompte.maxBalance"
+                     [minFractionDigits]="3"
+                     [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'maxBalance').length != 0}"
+                     class="w-100"
+                     id="amount"   mode="decimal"
+                     placeholder="Maximum amount"></p-inputNumber>
+    </span>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'maxBalance')" class="p-error block"
+             id="email-error">
+        {{error.errorMessage}}
+      </small>
+    </div>
+    <div class="p-field w-100 p-content ">
+      <label for="totalAmount" style="display: block">Max amount</label>
+      <span class="w-100">
+      <p-inputNumber [(ngModel)]="selectedCompte.totalBalance"
+                     [minFractionDigits]="3"  [disabled]=" true"
+                     class="w-100"
+                      id="totalAmount" mode="decimal"
+                     placeholder="Total amount"></p-inputNumber>
+    </span>
+    </div>
+    <div class="flex-end">
+      <button [disabled]="loading.loading" [icon]="loading.spinner" iconPos="right" label="Create" pButton pRipple
+              type="button" (click)="submit()"></button>
+    </div>
+
+
+</p-card>
+
+

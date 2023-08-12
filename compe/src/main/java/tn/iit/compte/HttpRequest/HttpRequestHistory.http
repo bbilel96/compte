@@ -1,0 +1,12 @@
+### Save new history.
+POST http://127.0.0.1:8080/api/history/C_604/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQEdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsImV4cCI6MTY2NjQyOTI3N30.S4C3b21ynLupou4jbddoFdTTcAMHMapYEW4UQa4sJI4
+
+{
+  "type": "DEPOSE",
+  "amount": -1,
+  "compteId": "C_604"
+}
+### Get Page of history of compte.
+GET http://localhost:8080/api/history/C_802/0/4

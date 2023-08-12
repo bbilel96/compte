@@ -1,0 +1,35 @@
+### Update user by id.
+PUT http://localhost:8080/api/user/U_1
+Content-Type: application/json
+
+{
+  "lastName": "Said&en",
+  "firstName": "Bilel",
+  "phoneNumber": "12345789",
+  "password": "12345678"
+}
+### Get User by id
+GET http://localhost:8080/user/U_1
+
+### Get All User per page
+GET http://localhost:8080/api/user/0/2
+
+### Create new user.
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "lastName": "",
+  "firstName": "",
+  "phoneNumber": "",
+  "email": "",
+  "password": ""
+}
+### Login.
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "email": "user@gmail.com",
+  "password": "user"
+}

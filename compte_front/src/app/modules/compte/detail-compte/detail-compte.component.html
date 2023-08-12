@@ -1,0 +1,95 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <div class="flex-space-between">
+      <h4 class="main-title">
+        Details of comptes
+      </h4>
+      <div>
+        <p-button (click)="showModalDialog()" icon="pi pi-plus" iconPos="right" label="New"
+                  styleClass="p-button-sm"></p-button>
+      </div>
+    </div>
+
+  </ng-template>
+  <div class="flex-space-between">
+    <div>
+      <h4>Account Numero</h4>
+      <p>{{selectedCompte.id}}</p>
+    </div>
+    <div>
+      <h4>Maximum amount</h4>
+      <p>{{selectedCompte.maxBalance}} DT</p>
+    </div>
+    <div>
+      <h4>Current amount</h4>
+      <p>{{selectedCompte.totalBalance}} DT</p>
+    </div>
+
+
+  </div>
+  <p-table [lazy]="true" [loading]="loading.loading" [resizableColumns]="true" [scrollable]="true" [value]="listHistory"
+           scrollHeight="300px" selectionMode="single"
+           styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pResizableColumn>Numero</th>
+        <th pResizableColumn>Type</th>
+        <th pResizableColumn>Amount</th>
+        <th pResizableColumn>Created date</th>
+      </tr>
+    </ng-template>
+    <ng-template let-history pTemplate="body">
+      <tr>
+        <td>{{history.id}}</td>
+        <td>{{history.type}}</td>
+        <td>{{history.amount}} DT</td>
+        <td>{{history.createdAt | date:'medium'}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator (onPageChange)="paginate($event)" [rowsPerPageOptions]="[5,10,15,20,25,30]" [rows]="5"
+               [showJumpToPageDropdown]="false"
+               [showPageLinks]="false" [totalRecords]="totalPage"></p-paginator>
+</p-card>
+
+
+<p-dialog [(visible)]="displayModal" [draggable]="false" [modal]="true"  [resizable]="false"
+          [style]="{width: '50vw', height: '400px'}" header="Make movement">
+  <p-messages></p-messages>
+  <form (ngSubmit)="submit()" [formGroup]="addHistory">
+    <div>
+
+    </div>
+    <div class="p-field w-100">
+      <label for="amount" style="display: block">Max amount</label>
+      <span class="w-100">
+      <p-inputNumber [minFractionDigits]="3" [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'amount').length != 0}"
+                     class="w-100"
+                     formControlName="amount" id="amount" mode="decimal"
+                     placeholder="Maximum amount"></p-inputNumber>
+    </span>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'amount')" class="p-error block"
+             id="email-error">
+        {{error.errorMessage}}
+      </small>
+
+
+    </div>
+    <div class="p-field w-100">
+      <label for="amount" style="display: block">Type</label>
+      <span class="w-100">
+      <p-dropdown [options]="types" formControlName="type" [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'type').length != 0}" placeholder="Select Type" optionLabel="name" ></p-dropdown>
+      </span><br>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'type')" class="p-error block"
+             id="email-error">
+        {{error.errorMessage}}
+      </small>
+    </div>
+    <div class="flex-end-bottom" >
+      <p-button type="submit" icon="pi pi-check" label="Ok" styleClass="p-button-text"></p-button>
+    </div>
+
+
+  </form>
+
+</p-dialog>

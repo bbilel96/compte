@@ -1,0 +1,24 @@
+### Create new Compte.
+POST http://localhost:8080/api/compte
+Content-Type: application/json
+
+{
+
+  "userId": "U_2"
+}
+### Delete compte by id.
+DELETE http://localhost:8080/api/compte/C_553
+
+### Get Compte by id.
+GET http://localhost:8080/api/compte/C_502
+
+### Get Page of compte By User id
+GET http://localhost:8080/api/compte/U_2/0/1
+
+### Update user by Id.
+PUT http://localhost:8080/api/compte/C_602
+Content-Type: application/json
+
+{
+  "maxBalance": -15
+}

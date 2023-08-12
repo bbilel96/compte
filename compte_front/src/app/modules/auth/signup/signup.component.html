@@ -1,0 +1,73 @@
+<p-card [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+
+  <main class="main">
+    <p-messages></p-messages>
+    <header>
+      <h2 class="auth-title">Sign up</h2>
+      <p class="auth-sub-title">Please enter your personal data to create new account.</p>
+    </header>
+    <form  [formGroup]="signupForm" (ngSubmit)="submit()">
+    <div class="p-field w-100" >
+      <label for="firstName" style="display: block">First name</label>
+      <span class="p-input-icon-left w-100">
+        <i class="pi pi-user"></i>
+        <input id="firstName" type="text" [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'firstName').length != 0}" formControlName="firstName" placeholder="Your first name" class="w-100" pInputText/>
+    </span>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'firstName')" class="p-error block"
+             id="email-error">
+        {{error.errorMessage}}
+      </small>
+      <small id="firstName-error" class="p-error block"></small>
+    </div>
+    <div class="p-field w-100">
+      <label for="lastName" style="display: block">Last name</label>
+      <span class="p-input-icon-left w-100">
+        <i class="pi pi-user"></i>
+        <input id="lastName" type="text" formControlName="lastName" [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'lastName').length != 0}" placeholder="Your last name" class="w-100" pInputText/>
+    </span>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'lastName')" class="p-error block"
+              id="email-error">
+      {{error.errorMessage}}
+    </small>
+    </div>
+    <div class="p-field w-100">
+      <label for="lastName" style="display: block">Phone number</label>
+      <span class="p-input-icon-left w-100">
+        <i class="pi pi-phone"></i>
+        <input id="phoneNumber" formControlName="phoneNumber" type="text" [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'phoneNumber').length != 0}" placeholder="Your last name" class="w-100" pInputText/>
+    </span>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'phoneNumber')" class="p-error block"
+             id="email-error">
+        {{error.errorMessage}}
+      </small>
+    </div>
+    <div class="p-field w-100">
+      <label for="email" style="display: block">Email</label>
+      <span class="p-input-icon-left w-100">
+        <i class="pi pi-envelope"></i>
+        <input id="email" type="text" formControlName="email" [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'email').length != 0}" placeholder="Your email" class="w-100" pInputText/>
+    </span>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'email')" class="p-error block"
+             id="email-error">
+        {{error.errorMessage}}
+      </small>
+    </div>
+    <div class="p-field w-100">
+      <label for="password" style="display: block">Password</label>
+      <span class="p-input-icon-left w-100">
+        <i class="pi pi-lock"></i>
+        <input id="password" formControlName="password" type="password"  [ngClass]="{ 'ng-invalid ng-dirty': inputError(responseMessage.error.validations, 'password').length != 0}" placeholder="Your password" class="w-100" pInputText/>
+    </span>
+      <small *ngFor="let error of inputError(responseMessage.error.validations, 'password')" class="p-error block"
+             id="email-error">
+        {{error.errorMessage}}
+      </small>    </div>
+    <div class="footer">
+      <span routerLink="../login">
+        Already have account?
+      </span>
+    </div>
+    <button pButton type="submit" class="w-100" label="Sign up" ></button>
+    </form>
+  </main>
+</p-card>

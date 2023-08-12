@@ -1,0 +1,7 @@
+<svg width="46" height="46" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19 19H5V5h9V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2v9Z"></path>
+  <path d="M17 13h-2v4h2v-4Z"></path>
+  <path d="M9 10H7v7h2v-7Z"></path>
+  <path d="M13 7h-2v10h2V7Z"></path>
+  <path d="M19 5V3h-2v2h-2v2h2v2h2V7h2V5h-2Z"></path>
+</svg>

@@ -1,0 +1,38 @@
+<p-card class="card">
+  <ng-template pTemplate="header">
+    <h4 class="main-title">
+      List of comptes
+    </h4>
+  </ng-template>
+  <p-table [lazy]="true" [loading]="loading.loading" [resizableColumns]="true" [scrollable]="true" [value]="listComptes"
+           scrollHeight="300px" selectionMode="single"
+           styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pResizableColumn>Numero</th>
+        <th pResizableColumn>Max Balance</th>
+        <th pResizableColumn>Total Balance</th>
+        <th pResizableColumn>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template let-compte pTemplate="body">
+      <tr (dblclick)="details(compte.id)" style="cursor: pointer">
+        <td>{{compte.id}}</td>
+        <td>{{compte.maxBalance}}</td>
+        <td>{{compte.totalBalance}}</td>
+        <td>
+          <div class="flex-center w-100">
+            <button (click)="delete(compte.id)" class="p-button-rounded p-button-danger p-button-text" icon="pi pi-trash" pButton pRipple
+                    type="button"></button>
+            <button (click)="update(compte.id)" class="p-button-rounded p-button-danger p-button-text" icon="pi pi-pencil" pButton pRipple
+                    type="button"></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator (onPageChange)="paginate($event)" [rowsPerPageOptions]="[5,10,15,20,25,30]" [rows]="5" [showJumpToPageDropdown]="false"
+               [showPageLinks]="false" [totalRecords]="totalPage"></p-paginator>
+</p-card>
+
+

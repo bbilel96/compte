@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/global";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--surface-ground);
+  font-family: $font-family;
+  font-weight: 400;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+.p-field {
+  margin-bottom: .75rem;
+  label {
+    display: block;
+    margin-bottom: .5rem;
+  }
+}

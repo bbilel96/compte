@@ -1,0 +1,22 @@
+<div class="header" style=" background: rgb(0, 120, 212)!important;">
+
+  <div class="header-container">
+    <div class="title">
+      <h4>
+        Account Manager
+      </h4>
+    </div>
+    <div class="header-menu">
+      <button class="p-button-text not-overlay" label="Create new account"  (click)="navigateAccount()" pButton pRipple type="button"></button>
+      <button class="p-button-text not-overlay" label=" List account" (click)="navigateList()" pButton pRipple type="button"></button>
+      <button class="p-button-rounded p-button-text" icon="pi pi-power-off" (click)="logout()" pButton pRipple type="button"></button>
+    </div>
+  </div>
+  <div class="overlay-header-menu">
+    <p-tabMenu [model]="items"  [activeItem]="items[0]"></p-tabMenu>
+  </div>
+
+</div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"
+                 rejectButtonStyleClass=" p-button-text "></p-confirmDialog>
